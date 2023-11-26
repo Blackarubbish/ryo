@@ -12,8 +12,15 @@ npm run check-format ||
 )
 
 echo '👮lint检查'
-npm run check-lint ||
+npm run lint ||
 (
     echo 'lint 校验失败!好好检查一下再提交 😤'
+    false; 
+)
+
+echo '👮ts代码校验'
+npm run check-types ||
+(
+    echo '❌存在typescript相关错误!🤡'
     false; 
 )

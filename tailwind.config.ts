@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
-
 const config: Config = {
+  darkMode: ['class', '[data-mode="dark"]'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,6 +10,9 @@ const config: Config = {
     extend: {
       maxWidth: {
         '8xl': '88rem',
+      },
+      fontFamily: {
+        ryo: '-apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial!important',
       },
       margin: {},
     },
