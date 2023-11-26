@@ -1,22 +1,19 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
 echo '🏗️👷 commit前置操作'
 
-echo '👷‍♀️代码格式化'
+echo '👮代码格式检查'
 # Check Prettier standards
-npm run format ||
+npm run check-format ||
 (
-    echo '🤢🤮🤢🤮 格式化失败';
+    echo '🤢🤮 代码格式有问题!';
     false;
 )
 
-echo '👷‍♀️lint修复'
-npm run lint ||
+echo '👮lint检查'
+npm run check-lint ||
 (
-    echo 'lint 自动修复失败 😤🏀👋😤'
+    echo 'lint 校验失败!好好检查一下再提交 😤'
     false; 
 )
