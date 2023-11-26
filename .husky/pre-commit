@@ -4,12 +4,19 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo '🏗️👷 Styling, testing and building your project before committing'
+echo '🏗️👷 commit前置操作'
 
+echo '👷‍♀️代码格式化'
 # Check Prettier standards
 npm run format ||
 (
-    echo '🤢🤮🤢🤮 Its F**KING RAW - Your styling looks disgusting. 🤢🤮🤢🤮
-            Prettier Check Failed. Run npm run format, add changes and try commit again.';
+    echo '🤢🤮🤢🤮 格式化失败';
     false;
+)
+
+echo '👷‍♀️lint修复'
+npm run lint ||
+(
+    echo 'lint 自动修复失败 😤🏀👋😤'
+    false; 
 )
