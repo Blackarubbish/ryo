@@ -1,5 +1,9 @@
+import { Fragment } from 'react';
+
 export default function Home() {
   return (
-    <main className="zmin-h-screen  flex flex-col items-center justify-between p-24"></main>
+    <Fragment>
+      <main className="mr-[23.33rem] w-[720px] bg-slate-900"></main>
+    </Fragment>
   );
 }

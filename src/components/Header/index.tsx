@@ -37,7 +37,7 @@ export default function RoyHeader() {
     }
   }, [enabled]);
   return (
-    <header className="h-16 bg-white dark:bg-gray-900">
+    <header className="h-16 border-b border-solid border-slate-200 bg-slate-50 font-semibold dark:bg-slate-900">
       <div className="fixed inset-x-0 top-0 mx-auto my-0 h-16 max-w-8xl ">
         <nav className="flex h-full items-center justify-between">
           <div>图标</div>
@@ -66,7 +66,7 @@ export default function RoyHeader() {
                 enabled
                   ? 'border-black bg-gray-600'
                   : 'border-inherit bg-gray-300'
-              }  relative  inline-flex h-6 w-11 items-center rounded-full border border-solid`}
+              }  relative  inline-flex h-6 w-11 items-center rounded-full border border-solid hover:border-blue-500`}
             >
               <span className="sr-only">Enable notifications</span>
               <div

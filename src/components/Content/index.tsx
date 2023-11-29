@@ -9,15 +9,10 @@ export default function RyoContent({
   const toggleMode = () => {
     const mode = document.body.getAttribute('data-mode');
     if (mode === 'dark') {
-      document.body.setAttribute('data-mode', 'light');
+      document.documentElement.setAttribute('data-mode', 'light');
     } else {
       document.body.setAttribute('data-mode', 'dark');
     }
   };
-  return (
-    <div className="mx-auto my-0 max-w-7xl">
-      {children}
-      <button onClick={toggleMode}>切换模式</button>
-    </div>
-  );
+  return <div className="mx-auto my-0 flex max-w-7xl">{children}</div>;
 }

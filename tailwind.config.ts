@@ -12,7 +12,7 @@ const config: Config = {
         '8xl': '88rem',
       },
       fontFamily: {
-        ryo: '-apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial!important',
+        ryo: 'FiraCode,yu400,yu100, -apple-system,system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial!important',
       },
       margin: {},
     },
