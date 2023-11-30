@@ -1,9 +1,11 @@
-import { Fragment } from 'react';
-
-export default function Home() {
+import PostsContainer from '@/components/PostsContainer';
+const Home = () => {
   return (
-    <Fragment>
-      <main className="mr-[23.33rem] w-[720px] bg-slate-900"></main>
-    </Fragment>
+    <main className="relative mt-6">
+      <PostsContainer />
+      <div className="absolute right-0 top-0 h-80 w-[21.66rem] bg-slate-400"></div>
+    </main>
   );
-}
+};
+
+export default Home;

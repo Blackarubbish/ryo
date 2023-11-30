@@ -1,4 +1,3 @@
-import RoyBanner from '@/components/Banner';
 import RyoContent from '@/components/Content';
 import RoyHeader from '@/components/Header';
 import type { Metadata } from 'next';
@@ -18,9 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-ryo">
-        <div id="roy" className="h-screen bg-slate-50">
+        <div id="roy" className="h-screen bg-slate-100">
           <RoyHeader />
-          <RoyBanner />
+          {/* <RoyBanner /> */}
           <RyoContent>{children}</RyoContent>
         </div>
       </body>
