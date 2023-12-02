@@ -22,7 +22,6 @@ export default function RootLayout({
           className="min-h-screen bg-light dark:bg-black dark:bg-none"
         >
           <RoyHeader />
-          {/* <RoyBanner /> */}
           <RyoContent>{children}</RyoContent>
         </div>
       </body>

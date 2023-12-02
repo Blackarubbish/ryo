@@ -50,10 +50,12 @@ export default function RoyHeader() {
     }
   }, [enabled]);
   useEffect(() => {
-    const documentEle = document.documentElement;
-    documentEle.addEventListener('wheel', onScrooll);
+    const bodyEle = document.body;
+    console.log(bodyEle);
+    bodyEle.onscroll = onScrooll;
+    // documentEle.addEventListener('scroll', onScrooll);
     return () => {
-      documentEle.removeEventListener('wheel', onScrooll);
+      bodyEle.removeEventListener('scroll', onScrooll);
     };
   }, []);
   return (
