@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ryo-bg-color: #ffffff;
+  --ryo-bg-sub1: #f7dfdb;
+  --ryo-bg-sub2: #99b1f9;
+  --ryo-text: #afd0f9;
+  --ryo-title: #647ac3;
+}
+
+@keyframes from-up-to-bottom {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.from-up-to-bottom {
+  animation: from-up-to-bottom 0.8s ease-out;
+}
+
+.backgroundImage {
+  background: linear-gradient(66deg, #e6fbfe 0%, #edddfb 100%);
+}
 @font-face {
   font-family: 'FiraCode';
   src: url(../assets/fonts/FiraCode-Regular.ttf);
@@ -22,4 +46,3 @@
   font-weight: normal;
   font-style: normal;
 }
-

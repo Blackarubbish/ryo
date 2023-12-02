@@ -17,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-ryo">
-        <div id="roy" className="h-screen bg-slate-100">
+        <div
+          id="roy"
+          className="min-h-screen bg-light dark:bg-black dark:bg-none"
+        >
           <RoyHeader />
           {/* <RoyBanner /> */}
           <RyoContent>{children}</RyoContent>
