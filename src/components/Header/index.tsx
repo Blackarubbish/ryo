@@ -31,7 +31,7 @@ export default function RoyHeader() {
   const [isShowHeader, setIsShowHeader] = useState(true);
   const dom = useRef<HTMLDivElement | null>(null);
   const data = getData();
-  const onScrooll = useCallback(
+  const onScroll = useCallback(
     debounce(() => {
       if (window.scrollY > 150 && dom.current) {
         console.log(window.scrollY);
@@ -50,12 +50,9 @@ export default function RoyHeader() {
     }
   }, [enabled]);
   useEffect(() => {
-    const bodyEle = document.body;
-    console.log(bodyEle);
-    bodyEle.onscroll = onScrooll;
-    // documentEle.addEventListener('scroll', onScrooll);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      bodyEle.removeEventListener('scroll', onScrooll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
   return (
