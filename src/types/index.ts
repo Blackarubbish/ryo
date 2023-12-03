@@ -16,3 +16,13 @@ export interface Posts {
   ctime: number;
   mtime: number;
 }
+
+export interface User {
+  name: string;
+  desc: string;
+  avatar: string;
+  links: {
+    link: string;
+    icon: string;
+  };
+}
