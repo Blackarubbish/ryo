@@ -1,5 +1,5 @@
-import PostsContainer from '@/components/PostsContainer';
-import RightSide from '@/components/RightSize';
+import PostList from '@/components/Home/PostsList';
+import RightSide from '@/components/Home/RightSize';
 import { Posts } from '@/types';
 
 const getPosts = async (): Promise<Posts[]> => {
@@ -22,7 +22,7 @@ const Home = async () => {
   const posts = await getPosts();
   return (
     <main className="relative mt-6">
-      <PostsContainer posts={posts} />
+      <PostList posts={posts} />
       <RightSide />
     </main>
   );

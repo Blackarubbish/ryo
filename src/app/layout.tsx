@@ -1,5 +1,4 @@
-import RyoContent from '@/components/Content';
-import RoyHeader from '@/components/Header';
+import Layout from '@/components/Layout';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -17,13 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-ryo">
-        <div
-          id="roy"
-          className="min-h-screen bg-light dark:bg-black dark:bg-none"
-        >
-          <RoyHeader />
-          <RyoContent>{children}</RyoContent>
-        </div>
+        <Layout>{children}</Layout>
       </body>
     </html>
   );

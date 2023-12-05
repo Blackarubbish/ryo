@@ -1,6 +1,7 @@
 import { Posts } from '@/types';
 import { Transition } from '@headlessui/react';
 import { Clock4, Eye, ThumbsUp } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 interface Props {
   data: Posts;
 }
@@ -21,6 +22,8 @@ const PostCard = (props: Props) => {
       icon: Clock4,
     },
   ];
+  const router = useRouter();
+  const toPost = () => router.push(`/posts/${data.id}`);
   return (
     <Transition
       appear={true}
@@ -32,7 +35,10 @@ const PostCard = (props: Props) => {
       leaveFrom="opacity-100 rotate-0 scale-100 "
       leaveTo="opacity-0 scale-95 "
     >
-      <div className="cursor-pointer px-5  pt-3 opacity-75 hover:bg-slate-200">
+      <div
+        onClick={toPost}
+        className="cursor-pointer px-5  pt-3 opacity-75 hover:bg-slate-200"
+      >
         <div className="flex border-b border-solid border-inherit pb-3 ">
           <div className="w-0 flex-auto">
             <div className="mt-0.5 text-ryo-title">
