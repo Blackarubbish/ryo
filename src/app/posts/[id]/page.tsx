@@ -1,5 +1,5 @@
+import '@/assets/style/md-light.scss';
 import Markdown from '@/components/Markdown';
-import 'github-markdown-css';
 interface Props {
   params: {
     id: string;
@@ -17,10 +17,10 @@ console.log('It works!')
   return (
     <div className="relative mt-6">
       <div
-        data-theme="dark"
+        md-theme="dark"
         className="markdown-body mr-[23.33rem] w-[900px] rounded bg-white shadow-lg"
       >
-        <Markdown content={data}>{data}</Markdown>
+        <Markdown content={data} />
       </div>
       <div></div>
     </div>

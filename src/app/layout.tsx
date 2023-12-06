@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-ryo">
+      <body data-mode="light" className="font-ryo">
         <Layout>{children}</Layout>
       </body>
     </html>
