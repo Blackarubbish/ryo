@@ -1,9 +1,41 @@
-import ReactMd from 'react-markdown';
+'use client';
+import React, { ClassAttributes, HTMLAttributes } from 'react';
+import ReactMd, { ExtraProps } from 'react-markdown';
+
 interface Props {
   content: string;
 }
-const Markdown = ({ content }: Props) => {
-  return <ReactMd>{content}</ReactMd>;
+const Markdown = (props: Props) => {
+  const { content } = props;
+  let headingCount = 0;
+  const Heading = (
+    props: ClassAttributes<HTMLHeadingElement> &
+      HTMLAttributes<HTMLHeadingElement> &
+      ExtraProps
+  ) => {
+    const { node, children } = props;
+    headingCount++;
+    const id = `post-heading-${headingCount}`;
+    return React.createElement(
+      node?.tagName || 'h1',
+      { id, 'data-name': 'md-heading' },
+      children
+    );
+  };
+  return (
+    <ReactMd
+      components={{
+        h1: Heading,
+        h2: Heading,
+        h3: Heading,
+        h4: Heading,
+        h5: Heading,
+        h6: Heading,
+      }}
+    >
+      {content}
+    </ReactMd>
+  );
 };
 
 export default Markdown;

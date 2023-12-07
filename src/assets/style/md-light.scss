@@ -15,7 +15,7 @@ $basecolor: #ff502c;
 $h-icons: "", "", "", "", "", "";
 $colors: $basecolor, lighten($basecolor, 2%), lighten($basecolor, 5%), lighten($basecolor, 8%), lighten($basecolor, 10%), lighten($basecolor, 12%);
 
-.markdown-body {
+[data-mode="light"] .markdown-body {
     font-family: -apple-system, system-ui, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif,
         BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial;
     color: $theme-font-color;
