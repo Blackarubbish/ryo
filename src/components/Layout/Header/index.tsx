@@ -1,10 +1,10 @@
 'use client';
+import useHtmlEnvet from '@/hooks/useScroll';
 import { NavItem } from '@/types';
-import { debounce } from '@/utils/function';
 import { Switch } from '@headlessui/react';
 import { Moon, Sun } from 'lucide-react';
 import Link from 'next/link';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 function getData() {
   //todo 请求导航栏配置
   const list: NavItem[] = [
@@ -31,17 +31,13 @@ export default function RoyHeader() {
   const [isShowHeader, setIsShowHeader] = useState(true);
   const dom = useRef<HTMLDivElement | null>(null);
   const data = getData();
-  const onScroll = useCallback(
-    debounce(() => {
-      if (window.scrollY > 150 && dom.current) {
-        console.log(window.scrollY);
-        setIsShowHeader(false);
-      } else {
-        setIsShowHeader(true);
-      }
-    }, 200),
-    []
-  );
+  useHtmlEnvet(null, 'scroll', () => {
+    if (window.scrollY > 100 && dom.current) {
+      setIsShowHeader(false);
+    } else {
+      setIsShowHeader(true);
+    }
+  });
   useEffect(() => {
     if (enabled) {
       document.body.setAttribute('data-mode', 'dark');
@@ -49,20 +45,14 @@ export default function RoyHeader() {
       document.body.setAttribute('data-mode', 'light');
     }
   }, [enabled]);
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
   return (
     <header className=" h-16  font-semibold ">
       <div
         ref={dom}
         className={`${
           isShowHeader
-            ? 'translate-y-0 transition-all duration-500'
-            : '-translate-y-full transition-all duration-500'
+            ? 'translate-y-0 transition-all duration-300'
+            : '-translate-y-full transition-all duration-300'
         } from-up-to-bottom fixed inset-x-0 top-0 z-50 border-b border-solid border-slate-200 bg-slate-50 shadow-md  transition-all dark:bg-slate-900`}
       >
         <div className=" mx-auto my-0 h-16 max-w-8xl ">

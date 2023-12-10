@@ -1,8 +1,7 @@
-'use client';
 import '@/assets/style/md-dark.css';
 import '@/assets/style/md-light.scss';
 import Markdown from '@/components/Markdown';
-import PostDir from '@/components/Posts/PostDir';
+import PostRightSize from '@/components/Posts/RightSide';
 interface Props {
   params: {
     id: string;
@@ -94,12 +93,10 @@ console.log('It works!')
 
   return (
     <div className="relative mt-6 ">
-      <div className="markdown-body mr-[23.33rem] w-[900px] overflow-hidden rounded bg-white shadow-lg">
+      <div className="mr-[23.33rem] w-[900px] overflow-hidden rounded bg-white shadow-lg">
         <Markdown content={data} />
       </div>
-      <div className="absolute bottom-0 right-0 top-0 w-[21.66rem]">
-        <PostDir />
-      </div>
+      <PostRightSize />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-'use client';
 import React, { ClassAttributes, HTMLAttributes } from 'react';
 import ReactMd, { ExtraProps } from 'react-markdown';
 
@@ -23,18 +22,27 @@ const Markdown = (props: Props) => {
     );
   };
   return (
-    <ReactMd
-      components={{
-        h1: Heading,
-        h2: Heading,
-        h3: Heading,
-        h4: Heading,
-        h5: Heading,
-        h6: Heading,
-      }}
-    >
-      {content}
-    </ReactMd>
+    <article className="p-8 dark:bg-[#22272e]">
+      <div>
+        <h1 className="mb-4 text-4xl font-bold text-slate-800 dark:text-[#adbac7] ">
+          标题
+        </h1>
+      </div>
+      <div className="markdown-body">
+        <ReactMd
+          components={{
+            h1: Heading,
+            h2: Heading,
+            h3: Heading,
+            h4: Heading,
+            h5: Heading,
+            h6: Heading,
+          }}
+        >
+          {content}
+        </ReactMd>
+      </div>
+    </article>
   );
 };
 

@@ -1,7 +1,7 @@
 'use client';
 import { Transition } from '@headlessui/react';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 
 import gitDark from '@/assets/imgs/gitHub-dark.png';
 import gitLight from '@/assets/imgs/gitHub-light.png';
@@ -10,9 +10,19 @@ import giteeLight from '@/assets/imgs/gitee-light.png';
 import juejinDark from '@/assets/imgs/juejin-dark.png';
 import juejinLight from '@/assets/imgs/juejin-light.png';
 import avatar from '@/assets/imgs/ryo.png';
+import useHtmlEnvet from '@/hooks/useScroll';
 const RightSide = () => {
-  const [isShowing, setIsShowing] = useState(false);
   const dom = useRef<HTMLDivElement | null>(null);
+  useHtmlEnvet(null, 'scroll', () => {
+    if (!dom.current) return;
+    if (window.scrollY > 150) {
+      dom.current.style.position = 'fixed';
+      dom.current.style.top = '64px';
+    } else {
+      dom.current.style.position = 'static';
+    }
+  });
+
   const links = [
     {
       link: '/',
@@ -56,22 +66,6 @@ const RightSide = () => {
       value: 20,
     },
   ];
-  useEffect(() => {
-    if (!dom.current) return;
-    const handleScroll = () => {
-      if (!dom.current) return;
-      if (window.scrollY > 150) {
-        dom.current.style.position = 'fixed';
-        dom.current.style.top = '64px';
-      } else {
-        dom.current.style.position = 'static';
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
     <div className="absolute bottom-0 right-0 top-0 w-[21.66rem]">
       <div ref={dom} className="w-[21.66rem]">
