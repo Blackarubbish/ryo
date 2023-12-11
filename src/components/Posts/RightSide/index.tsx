@@ -1,10 +1,10 @@
 'use client';
-import useHtmlEnvet from '@/hooks/useScroll';
+import useHtmlEvent from '@/hooks/useHTMLEvent';
 import { useRef } from 'react';
 import PostDir from './PostDir';
 const PostRightSize = () => {
   const sideContentDom = useRef<HTMLDivElement | null>(null);
-  useHtmlEnvet(null, 'scroll', () => {
+  useHtmlEvent(null, 'scroll', () => {
     if (!sideContentDom.current) return;
     if (window.scrollY > 150) {
       sideContentDom.current.style.position = 'fixed';

@@ -1,5 +1,5 @@
 'use client';
-import useHtmlEnvet from '@/hooks/useScroll';
+import useHtmlEvent from '@/hooks/useHTMLEvent';
 import { NavItem } from '@/types';
 import { Switch } from '@headlessui/react';
 import { Moon, Sun } from 'lucide-react';
@@ -31,7 +31,7 @@ export default function RoyHeader() {
   const [isShowHeader, setIsShowHeader] = useState(true);
   const dom = useRef<HTMLDivElement | null>(null);
   const data = getData();
-  useHtmlEnvet(null, 'scroll', () => {
+  useHtmlEvent(null, 'scroll', () => {
     if (window.scrollY > 100 && dom.current) {
       setIsShowHeader(false);
     } else {

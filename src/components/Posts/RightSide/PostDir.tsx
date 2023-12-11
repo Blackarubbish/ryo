@@ -1,7 +1,8 @@
 'use client';
 
+import useScrollY from '@/hooks/useScrollY';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 interface DirItem {
   text: string;
   tagName: string;
@@ -9,8 +10,11 @@ interface DirItem {
 }
 const PostDir = () => {
   const [dirItems, setDirItems] = useState<DirItem[]>([]);
-  const [isExpend, setIsEnpend] = useState(true);
-  useEffect(() => {
+  const [isExpend, setIsExpend] = useState(true);
+  const [activeDir, setActiveDir] = useState('');
+  const offsetTopList = useRef<{ id: string; offsetTop: number }[]>([]);
+  const pageScrollY = useScrollY();
+  const genDir = () => {
     const headings = document.querySelectorAll<HTMLHeadingElement>(
       '.markdown-body [data-name="md-heading"]'
     );
@@ -23,7 +27,34 @@ const PostDir = () => {
       });
     });
     setDirItems(tempDirItems);
+  };
+  const getHeadingOffsetHeight = () => {
+    const headings = document.querySelectorAll<HTMLDivElement>(
+      ".markdown-body [data-name='md-heading']"
+    );
+    offsetTopList.current = Array.from(headings).map((item) => ({
+      id: item.id,
+      offsetTop: item.offsetTop,
+    }));
+  };
+  useEffect(() => {
+    genDir();
+    getHeadingOffsetHeight();
   }, []);
+
+  useEffect(() => {
+    console.log(offsetTopList.current);
+    for (let i = 0; i < offsetTopList.current.length; i++) {
+      if (
+        offsetTopList.current[i].offsetTop < pageScrollY &&
+        pageScrollY < offsetTopList.current[i + 1].offsetTop
+      ) {
+        console.log(offsetTopList.current[i].id);
+        setActiveDir(offsetTopList.current[i].id);
+      }
+    }
+  }, [pageScrollY]);
+
   return (
     <div className="rounded bg-slate-50 px-4 py-2 dark:bg-[#22272e]">
       <div
@@ -33,7 +64,7 @@ const PostDir = () => {
       >
         <span className="text-lg text-ryo-title dark:text-slate-100">目录</span>
         <span
-          onClick={() => setIsEnpend(!isExpend)}
+          onClick={() => setIsExpend(!isExpend)}
           className="flex cursor-pointer items-center text-sm text-slate-400"
         >
           {isExpend ? (
@@ -70,8 +101,10 @@ const PostDir = () => {
             }
             return (
               <li
-                className={`${className} rounded-md py-1 text-slate-500 hover:bg-sky-100 dark:text-slate-100 dark:hover:text-sky-800`}
-                key={index}
+                className={`${className} ${
+                  activeDir === item.id ? 'bg-sky-100 dark:text-sky-800' : ''
+                } rounded-md py-1 text-slate-500 hover:bg-sky-100 dark:text-slate-100 dark:hover:text-sky-800`}
+                key={item.id}
               >
                 <a
                   title={item.text}

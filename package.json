@@ -17,6 +17,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "axios": "^1.6.2",
     "github-markdown-css": "^5.4.0",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.293.0",
     "next": "14.0.3",
     "react": "^18",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

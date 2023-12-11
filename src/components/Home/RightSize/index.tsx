@@ -10,7 +10,7 @@ import giteeLight from '@/assets/imgs/gitee-light.png';
 import juejinDark from '@/assets/imgs/juejin-dark.png';
 import juejinLight from '@/assets/imgs/juejin-light.png';
 import avatar from '@/assets/imgs/ryo.png';
-import useHtmlEnvet from '@/hooks/useScroll';
+import useHtmlEnvet from '@/hooks/useHTMLEvent';
 const RightSide = () => {
   const dom = useRef<HTMLDivElement | null>(null);
   useHtmlEnvet(null, 'scroll', () => {

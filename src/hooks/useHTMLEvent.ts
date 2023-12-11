@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useHtmlEnvet = (
+const useHtmlEvent = (
   dom: HTMLElement | Window | null,
   event: string,
   callback: () => void
@@ -15,4 +15,4 @@ const useHtmlEnvet = (
   });
 };
 
-export default useHtmlEnvet;
+export default useHtmlEvent;
