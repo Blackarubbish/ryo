@@ -2,6 +2,7 @@ export interface NavItem {
   id: string;
   title: string;
   state: 1 | 0;
+  link: string;
 }
 
 export interface Posts {

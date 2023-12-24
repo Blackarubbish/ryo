@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
+    "@material-tailwind/html": "^2.1.2",
     "@tailwindcss/line-clamp": "^0.4.4",
     "axios": "^1.6.2",
     "github-markdown-css": "^5.4.0",

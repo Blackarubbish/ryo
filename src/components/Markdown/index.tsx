@@ -7,6 +7,7 @@ interface Props {
 const Markdown = (props: Props) => {
   const { content } = props;
   let headingCount = 0;
+  // markdown标题设置
   const Heading = (
     props: ClassAttributes<HTMLHeadingElement> &
       HTMLAttributes<HTMLHeadingElement> &

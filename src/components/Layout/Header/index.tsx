@@ -11,17 +11,20 @@ function getData() {
     {
       id: '1',
       title: '首页',
+      link: '/',
       state: 1,
     },
     {
       id: '2',
       title: '搜索',
       state: 1,
+      link: '/search',
     },
     {
       id: '3',
       title: '关于',
       state: 1,
+      link: '/about',
     },
   ];
   return list;
@@ -65,7 +68,7 @@ export default function RoyHeader() {
                     <li key={item.id} className="px-2.5">
                       <Link
                         className="group relative inline-block h-16  text-lg leading-[4rem] text-ryo-title hover:cursor-pointer hover:text-ryo-bg-sub2 dark:text-slate-200 dark:hover:text-slate-50"
-                        href={'/'}
+                        href={item.link}
                       >
                         {item.title}
                         <span className="absolute inset-x-0 bottom-0 hidden h-1 w-full bg-ryo-bg-sub2 group-hover:inline-block"></span>

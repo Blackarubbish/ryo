@@ -34,8 +34,9 @@ const PostDir = () => {
     );
     offsetTopList.current = Array.from(headings).map((item) => ({
       id: item.id,
-      offsetTop: item.offsetTop,
+      offsetTop: item.offsetTop + 36,
     }));
+    console.log(offsetTopList.current);
   };
   useEffect(() => {
     genDir();
@@ -43,16 +44,16 @@ const PostDir = () => {
   }, []);
 
   useEffect(() => {
-    console.log(offsetTopList.current);
     for (let i = 0; i < offsetTopList.current.length; i++) {
       if (
         offsetTopList.current[i].offsetTop < pageScrollY &&
-        pageScrollY < offsetTopList.current[i + 1].offsetTop
+        pageScrollY <= offsetTopList.current[i + 1].offsetTop
       ) {
-        console.log(offsetTopList.current[i].id);
         setActiveDir(offsetTopList.current[i].id);
+        return;
       }
     }
+    setActiveDir('');
   }, [pageScrollY]);
 
   return (
@@ -101,9 +102,11 @@ const PostDir = () => {
             }
             return (
               <li
-                className={`${className} ${
-                  activeDir === item.id ? 'bg-sky-100 dark:text-sky-800' : ''
-                } rounded-md py-1 text-slate-500 hover:bg-sky-100 dark:text-slate-100 dark:hover:text-sky-800`}
+                className={`rounded-md py-1 text-slate-500 hover:bg-sky-100  ${className} ${
+                  activeDir === item.id
+                    ? 'bg-sky-100 text-sky-800'
+                    : 'dark:text-slate-100 dark:hover:text-sky-800'
+                } `}
                 key={item.id}
               >
                 <a
