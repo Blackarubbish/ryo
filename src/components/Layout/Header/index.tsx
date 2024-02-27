@@ -4,24 +4,25 @@ import { NavItem } from '@/types';
 import { Switch } from '@headlessui/react';
 import { Moon, Sun } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 function getData() {
   //todo 请求导航栏配置
   const list: NavItem[] = [
     {
-      id: '1',
+      id: 'home',
       title: '首页',
       link: '/',
       state: 1,
     },
     {
-      id: '2',
-      title: '搜索',
+      id: 'tags',
+      title: '标签',
       state: 1,
-      link: '/search',
+      link: '/tags',
     },
     {
-      id: '3',
+      id: 'about',
       title: '关于',
       state: 1,
       link: '/about',
@@ -34,6 +35,7 @@ export default function RoyHeader() {
   const [isShowHeader, setIsShowHeader] = useState(true);
   const dom = useRef<HTMLDivElement | null>(null);
   const data = getData();
+  const pathName = usePathname();
   useHtmlEvent(null, 'scroll', () => {
     if (window.scrollY > 100 && dom.current) {
       setIsShowHeader(false);
@@ -41,6 +43,14 @@ export default function RoyHeader() {
       setIsShowHeader(true);
     }
   });
+
+  const isActive = (navId: string) => {
+    const topPath = pathName.split('/')[1];
+    if (navId === 'home' && pathName === '/') {
+      return true;
+    }
+    return navId === topPath;
+  };
   useEffect(() => {
     if (enabled) {
       document.body.setAttribute('data-mode', 'dark');
@@ -67,11 +77,18 @@ export default function RoyHeader() {
                   item.state === 1 && (
                     <li key={item.id} className="px-2.5">
                       <Link
-                        className="group relative inline-block h-16  text-lg leading-[4rem] text-ryo-title hover:cursor-pointer hover:text-ryo-bg-sub2 dark:text-slate-200 dark:hover:text-slate-50"
+                        className={`group relative inline-block h-16  text-lg leading-[4rem] text-ryo-title ${
+                          isActive(item.id) ? 'text-ryo-bg-sub2' : ''
+                        } hover:cursor-pointer hover:text-ryo-bg-sub2 dark:text-slate-200 dark:hover:text-slate-50`}
                         href={item.link}
                       >
                         {item.title}
-                        <span className="absolute inset-x-0 bottom-0 hidden h-1 w-full bg-ryo-bg-sub2 group-hover:inline-block"></span>
+                        <span
+                          className={` ${
+                            isActive(item.id) ? 'inline-block' : 'hidden'
+                          } 
+                          absolute inset-x-0 bottom-0  h-1 w-full bg-ryo-bg-sub2 group-hover:inline-block`}
+                        ></span>
                       </Link>
                     </li>
                   )

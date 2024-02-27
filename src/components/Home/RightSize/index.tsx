@@ -15,7 +15,7 @@ const RightSide = () => {
   const dom = useRef<HTMLDivElement | null>(null);
   useHtmlEnvet(null, 'scroll', () => {
     if (!dom.current) return;
-    if (window.scrollY > 150) {
+    if (window.scrollY > 80) {
       dom.current.style.position = 'fixed';
       dom.current.style.top = '64px';
     } else {
