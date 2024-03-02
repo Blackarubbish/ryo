@@ -8,41 +8,43 @@
   --ryo-bg-sub2: #99b1f9;
   --ryo-text: #afd0f9;
   --ryo-title: #647ac3;
+  --header-bg-color: #3f51b5;
 }
 
-@keyframes from-up-to-bottom {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0%);
-  }
+body,
+input,
+button,
+textarea,
+select,
+option {
+  font:
+    normal 1em Roboto,
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    'Microsoft Yahei',
+    sans-serif;
 }
 
-.from-up-to-bottom {
-  animation: from-up-to-bottom 0.8s ease-out;
+html,
+body {
+  position: relative;
+  min-height: 100%;
+  height: 100%;
 }
 
-.backgroundImage {
-  background: linear-gradient(66deg, #e6fbfe 0%, #edddfb 100%);
+/* 全局滚动条样式 */
+*::-webkit-scrollbar {
+  width: 8px;
 }
-@font-face {
-  font-family: 'FiraCode';
-  src: url(../assets/fonts/FiraCode-Regular.ttf);
-  font-weight: normal;
-  font-style: normal;
+*::-webkit-scrollbar-track {
+  background: rgb(239, 239, 239);
+  border-radius: 2px;
 }
-
-@font-face {
-  font-family: 'yu100';
-  src: url(../assets/fonts/yu100.ttf);
-  font-weight: normal;
-  font-style: normal;
+*::-webkit-scrollbar-thumb {
+  background: #40a0ff49;
+  border-radius: 10px;
 }
-
-@font-face {
-  font-family: 'yu400';
-  src: url(../assets/fonts/yu400.ttf);
-  font-weight: normal;
-  font-style: normal;
+*::-webkit-scrollbar-thumb:hover {
+  background: #40a0ff;
 }

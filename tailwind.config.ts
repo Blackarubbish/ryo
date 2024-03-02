@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+import { nextui } from '@nextui-org/react';
 import type { Config } from 'tailwindcss';
 const config: Config = {
   darkMode: ['class', '[data-mode="dark"]'],
   content: [
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -17,11 +19,7 @@ const config: Config = {
       },
       margin: {},
       colors: {
-        'ryo-bg': 'var(--ryo-bg-color)',
-        'ryo-bg-sub1': 'var(--ryo-bg-sub1)',
-        'ryo-bg-sub2': 'var(--ryo-bg-sub2)',
-        'ryo-text': 'var(--ryo-text)',
-        'ryo-title': 'var(--ryo-title)',
+        'main-color': '#3f51b5',
       },
       backgroundImage: {
         light: 'linear-gradient(66deg, #e6fbfe 0%, #edddfb 100%)',
@@ -29,6 +27,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [nextui()],
 };
 export default config;

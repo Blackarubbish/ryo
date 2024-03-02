@@ -13,10 +13,12 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.17",
     "@material-tailwind/html": "^2.1.2",
+    "@nextui-org/react": "^2.2.9",
     "@tailwindcss/line-clamp": "^0.4.4",
     "axios": "^1.6.2",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.8",
     "github-markdown-css": "^5.4.0",
     "lodash": "^4.17.21",
     "lucide-react": "^0.293.0",
@@ -24,7 +26,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.1",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",

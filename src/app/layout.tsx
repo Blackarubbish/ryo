@@ -1,8 +1,10 @@
 import '@/assets/style/reset.css';
-import Layout from '@/components/Layout';
+import RoyHeader from '@/components/Header';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import style from './index.module.scss';
+import { Providers } from './provider';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -17,7 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body data-mode="light" className="font-ryo">
-        <Layout>{children}</Layout>
+        <Providers>
+          <header className={style.header}>
+            <RoyHeader />
+          </header>
+          {children}
+        </Providers>
       </body>
     </html>
   );

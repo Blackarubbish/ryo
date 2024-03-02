@@ -1,0 +1,18 @@
+.headerContent {
+  margin: 0 auto;
+  width: 960px;
+  transition: all 0.6s ease-in-out;
+
+  h1 {
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 48px;
+  }
+  .subtitle {
+    padding-top: 6px;
+    font-weight: 300;
+    color: #c5cae9;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
