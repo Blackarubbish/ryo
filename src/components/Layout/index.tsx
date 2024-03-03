@@ -1,5 +1,5 @@
-import RyoContent from './Content';
 import RoyHeader from '../Header';
+import RyoContent from './Content';
 
 interface Props {
   children: React.ReactNode;

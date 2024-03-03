@@ -1,10 +1,11 @@
 import '@/assets/style/reset.css';
 import RoyHeader from '@/components/Header';
+import RyoMenu from '@/components/SideMenu';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import style from './index.module.scss';
-import { Providers } from './provider';
+import './index.scss';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -20,10 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body data-mode="light" className="font-ryo">
         <Providers>
-          <header className={style.header}>
+          <RyoMenu />
+          <main id="ryo-main">
             <RoyHeader />
-          </header>
-          {children}
+            {children}
+          </main>
         </Providers>
       </body>
     </html>

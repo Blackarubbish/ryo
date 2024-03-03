@@ -80,7 +80,7 @@ const RightSide = () => {
               className="h-20 w-20 rounded-[50%] border-2 border-solid border-pink-200 shadow-sm  shadow-pink-200/50 dark:border-blue-200 dark:shadow-xl dark:shadow-blue-200/50"
             />
           </div>
-          <div className="my-2 text-lg font-extrabold text-ryo-title">
+          <div className="text-ryo-title my-2 text-lg font-extrabold">
             用户名称
           </div>
           <div className="line-clamp-2 px-4 text-xs text-gray-400">
@@ -122,7 +122,7 @@ const RightSide = () => {
           {postsData.map((item) => {
             return (
               <div
-                className="flex cursor-pointer flex-col items-center justify-center rounded-xl px-4 py-1 text-xl font-bold text-ryo-title hover:bg-slate-300 dark:text-ryo-text dark:hover:bg-slate-700"
+                className="text-ryo-title dark:text-ryo-text flex cursor-pointer flex-col items-center justify-center rounded-xl px-4 py-1 text-xl font-bold hover:bg-slate-300 dark:hover:bg-slate-700"
                 key={item.key}
               >
                 <div className="text-base text-slate-800 dark:text-slate-200">

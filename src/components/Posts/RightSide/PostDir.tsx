@@ -63,7 +63,7 @@ const PostDir = () => {
           isExpend ? 'border-b border-solid border-inherit' : ''
         }`}
       >
-        <span className="text-lg text-ryo-title dark:text-slate-100">目录</span>
+        <span className="text-ryo-title text-lg dark:text-slate-100">目录</span>
         <span
           onClick={() => setIsExpend(!isExpend)}
           className="flex cursor-pointer items-center text-sm text-slate-400"

@@ -8,7 +8,7 @@ const nextConfig = {
         destination: '/home',
         permanent: true,
       },
-    ]
+    ];
   },
 };
 

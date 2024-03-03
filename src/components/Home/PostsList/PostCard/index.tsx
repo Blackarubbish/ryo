@@ -30,12 +30,12 @@ const PostCard = (props: Props) => {
     >
       <div className="flex border-b border-solid border-inherit pb-3 ">
         <div className="w-0 flex-auto">
-          <div className="mt-0.5 text-ryo-title">
+          <div className="text-ryo-title mt-0.5">
             <a href="#" className="text-lg font-semibold">
               标题
             </a>
           </div>
-          <div className="m-2 truncate text-sm text-ryo-text">
+          <div className="text-ryo-text m-2 truncate text-sm">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid,
             minus officiis non amet unde molestias neque quis at facilis nulla
             distinctio sequi, animi assumenda in ut qui exercitationem libero
@@ -60,7 +60,7 @@ const PostCard = (props: Props) => {
                 return (
                   <a
                     href="#"
-                    className="ml-2 max-w-[80px] rounded-sm bg-ryo-bg-sub2 px-2 py-0.5 text-xs hover:bg-ryo-title"
+                    className="bg-ryo-bg-sub2 hover:bg-ryo-title ml-2 max-w-[80px] rounded-sm px-2 py-0.5 text-xs"
                     key={item}
                   >
                     {item}
