@@ -10,65 +10,66 @@ import { ChangeEventHandler, useEffect, useRef, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import style from './index.module.scss';
 
-const Posts = [
-  {
-    key: '1232',
-    title: 'title1',
-  },
-  {
-    key: '233',
-    title: 'title2',
-  },
-  {
-    key: '233a',
-    title: 'title2',
-  },
-  {
-    key: '233s',
-    title: 'title2',
-  },
-  {
-    key: '233c',
-    title: 'title2',
-  },
-  {
-    key: '2331',
-    title: 'title2',
-  },
-  {
-    key: '23s3',
-    title: 'title2',
-  },
-  {
-    key: '23s13',
-    title: 'title2',
-  },
-  {
-    key: '23112sd3g',
-    title: 'title2',
-  },
-  {
-    key: '23112sd34',
-    title: 'title2',
-  },
-  {
-    key: '23112sd33',
-    title: 'title2',
-  },
-  {
-    key: '23112sd31',
-    title: 'title2',
-  },
-  {
-    key: '23112sd3a',
-    title: 'title2',
-  },
-  {
-    key: '23112sd3s',
-    title: 'title2',
-  },
-];
+// const Posts = [
+//   {
+//     key: '1232',
+//     title: 'title1',
+//   },
+//   {
+//     key: '233',
+//     title: 'title2',
+//   },
+//   {
+//     key: '233a',
+//     title: 'title2',
+//   },
+//   {
+//     key: '233s',
+//     title: 'title2',
+//   },
+//   {
+//     key: '233c',
+//     title: 'title2',
+//   },
+//   {
+//     key: '2331',
+//     title: 'title2',
+//   },
+//   {
+//     key: '23s3',
+//     title: 'title2',
+//   },
+//   {
+//     key: '23s13',
+//     title: 'title2',
+//   },
+//   {
+//     key: '23112sd3g',
+//     title: 'title2',
+//   },
+//   {
+//     key: '23112sd34',
+//     title: 'title2',
+//   },
+//   {
+//     key: '23112sd33',
+//     title: 'title2',
+//   },
+//   {
+//     key: '23112sd31',
+//     title: 'title2',
+//   },
+//   {
+//     key: '23112sd3a',
+//     title: 'title2',
+//   },
+//   {
+//     key: '23112sd3s',
+//     title: 'title2',
+//   },
+// ];
 
+const Posts: any[] = [];
 const SearchBar = () => {
   const router = useRouter();
   const [isShowInput, setIsShowInput] = useState(false);
@@ -108,6 +109,12 @@ const SearchBar = () => {
       inputDom.current && inputDom.current.focus();
     }
   }, [isShowInput]);
+
+  useEffect(() => {
+    if (!!searchText.trim()) {
+      setPosts([]);
+    }
+  }, [searchText]);
   return (
     <div
       className={clsx(style.searchBar)}
@@ -152,10 +159,12 @@ const SearchBar = () => {
               ) : (
                 <Listbox
                   onAction={(key) => {
-                    if (typeof key === 'string') router.push(`/posts/${key}`);
+                    setIsShowInput(false);
+                    window.open(`/posts/${key}`, '_blank');
                   }}
                   aria-label="Listbox with search result"
                   items={posts}
+                  emptyContent={<div>找不到相关内容..😫</div>}
                 >
                   {(item) => (
                     <ListboxItem key={item.key} color="primary">
