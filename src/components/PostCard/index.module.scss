@@ -1,0 +1,23 @@
+.postCard {
+  padding: 10px 16px 0;
+  .title {
+    color: rgb(63, 81, 181);
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .tags {
+      button {
+        margin-right: 6px;
+      }
+    }
+    .info {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

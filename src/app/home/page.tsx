@@ -1,5 +1,6 @@
+import PostCard from '@/components/PostCard';
 import { Posts } from '@/types';
-
+import style from './index.module.scss';
 const getPosts = async (): Promise<Posts[]> => {
   const posts: Posts[] = [];
   for (let i = 0; i < 10; i++) {
@@ -18,7 +19,11 @@ const getPosts = async (): Promise<Posts[]> => {
 };
 const Home = async () => {
   const posts = await getPosts();
-  return <main className="relative mt-6">main</main>;
+  return (
+    <div className={style.home}>
+      <PostCard />
+    </div>
+  );
 };
 
 export default Home;

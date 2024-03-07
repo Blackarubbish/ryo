@@ -24,7 +24,7 @@ export default function RootLayout({
           <RyoMenu />
           <main id="ryo-main">
             <RoyHeader />
-            {children}
+            <div className="main-content">{children}</div>
           </main>
         </Providers>
       </body>

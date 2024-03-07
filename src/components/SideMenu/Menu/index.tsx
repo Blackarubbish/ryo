@@ -20,8 +20,6 @@ const menuList = [
 
 const Menu = () => {
   const pathname = usePathname();
-  console.log(pathname);
-  const isActive = (link: string) => {};
   return (
     <ul className={style.menuWrapper}>
       {menuList.map((item) => {
