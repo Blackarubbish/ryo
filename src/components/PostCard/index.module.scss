@@ -1,9 +1,33 @@
 .postCard {
   padding: 10px 16px 0;
+  cursor: pointer;
   .title {
     color: rgb(63, 81, 181);
     font-size: 24px;
     font-weight: bold;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > span {
+      margin-right: 3px;
+    }
+    &:hover {
+      color: #3273dc;
+      &::after {
+        width: 100%;
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 2px;
+      width: 0px;
+      background-color: #3273dc;
+      transition: all 0.3s linear;
+    }
   }
 
   .footer {

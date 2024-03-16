@@ -1,9 +1,13 @@
 'use client';
+import { Post } from '@/types';
 import { Button } from '@nextui-org/button';
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
 import { Chip } from '@nextui-org/chip';
 import { Divider } from '@nextui-org/divider';
+import { Tooltip } from '@nextui-org/tooltip';
 import { MotionProps, motion } from 'framer-motion';
+import { Link as LinkIcon } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import style from './index.module.scss';
 
 // 定义动画效果
@@ -18,12 +22,34 @@ const motionProps: MotionProps = {
   },
 };
 
-const PostCard = () => {
+interface Props {
+  post: Post;
+}
+
+const PostCard = (props: Props) => {
+  const postData = props.post;
+  const router = useRouter();
+  const onPress = () => {
+    console.log('pres');
+  };
+  const toPostContent = (postid: string) => {
+    console.log('clic');
+    router.push(`/post/${postid}`);
+  };
   return (
     <motion.div {...motionProps}>
-      <Card isPressable fullWidth className={style.postCard}>
+      <Card
+        onClick={() => toPostContent(postData.id)}
+        fullWidth
+        className={style.postCard}
+      >
         <CardHeader>
-          <h5 className={style.title}>标题</h5>
+          <Tooltip content="阅读全文" closeDelay={100}>
+            <h5 className={style.title}>
+              <span>标题</span>
+              <LinkIcon size={16} />
+            </h5>
+          </Tooltip>
         </CardHeader>
         <CardBody>
           <div className="line-clamp-3">

@@ -1,4 +1,5 @@
 import '@/assets/style/reset.css';
+import RoyFooter from '@/components/Footer';
 import RoyHeader from '@/components/Header';
 import RyoMenu from '@/components/SideMenu';
 import type { Metadata } from 'next';
@@ -25,6 +26,7 @@ export default function RootLayout({
           <main id="ryo-main">
             <RoyHeader />
             <div className="main-content">{children}</div>
+            <RoyFooter />
           </main>
         </Providers>
       </body>

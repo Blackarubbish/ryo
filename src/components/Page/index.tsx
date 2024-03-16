@@ -1,8 +1,8 @@
-import PostCard from '@/components/PostCard';
-import { Posts } from '@/types';
+import { Post } from '@/types';
 import style from './index.module.scss';
-const getPosts = async (): Promise<Posts[]> => {
-  const posts: Posts[] = [];
+import PostList from './postlist';
+const getPosts = async (): Promise<Post[]> => {
+  const posts: Post[] = [];
   for (let i = 0; i < 10; i++) {
     posts.push({
       desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae nulla quibusdam animi, facilis tempora adipisci, molestias, omnis atque natus blanditiis voluptatum! Cupiditate iure nobis voluptatum, veniam sapiente quos? Ut, ea.',
@@ -17,13 +17,20 @@ const getPosts = async (): Promise<Posts[]> => {
   }
   return posts;
 };
-const Home = async () => {
+const PostPage = async ({
+  params,
+}: {
+  params: {
+    pageNum?: number;
+  };
+}) => {
   const posts = await getPosts();
+  const current = params.pageNum || 1;
   return (
     <div className={style.home}>
-      <PostCard />
+      <PostList current={current} postList={posts} />
     </div>
   );
 };
 
-export default Home;
+export default PostPage;

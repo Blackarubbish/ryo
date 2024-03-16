@@ -5,7 +5,7 @@ export interface NavItem {
   link: string;
 }
 
-export interface Posts {
+export interface Post {
   title: string;
   desc: string;
   img?: string;
