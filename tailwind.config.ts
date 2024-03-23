@@ -25,6 +25,9 @@ const config: Config = {
         light: 'linear-gradient(66deg, #e6fbfe 0%, #edddfb 100%)',
         dark: 'linear-gradient(66deg, #453C55 0%, #DCD0EF 100%)',
       },
+      transitionProperty: {
+        spacing: 'margin, padding',
+      },
     },
   },
   plugins: [nextui()],

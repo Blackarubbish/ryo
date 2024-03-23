@@ -3,8 +3,7 @@
 import { Post } from '@/types';
 import { Pagination } from '@nextui-org/pagination';
 import { useRouter } from 'next/navigation';
-import PostCard from '../PostCard';
-import style from './index.module.scss';
+import PostCard from './PostCard';
 interface Props {
   postList: Post[];
   current: number;
@@ -19,16 +18,16 @@ const PostList = (props: Props) => {
   };
   return (
     <>
-      <ul className={style.postsContent}>
+      <ul>
         {postList.map((item) => {
           return (
-            <li key={item.id}>
+            <li className="mb-[25px]" key={item.id}>
               <PostCard post={item} />
             </li>
           );
         })}
       </ul>
-      <div className={style.footer}>
+      <div className="flex justify-center">
         <Pagination
           onChange={onPageNumChange}
           showControls

@@ -8,66 +8,6 @@ import { Search } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { ChangeEventHandler, useEffect, useRef, useState } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
-import style from './index.module.scss';
-
-// const Posts = [
-//   {
-//     key: '1232',
-//     title: 'title1',
-//   },
-//   {
-//     key: '233',
-//     title: 'title2',
-//   },
-//   {
-//     key: '233a',
-//     title: 'title2',
-//   },
-//   {
-//     key: '233s',
-//     title: 'title2',
-//   },
-//   {
-//     key: '233c',
-//     title: 'title2',
-//   },
-//   {
-//     key: '2331',
-//     title: 'title2',
-//   },
-//   {
-//     key: '23s3',
-//     title: 'title2',
-//   },
-//   {
-//     key: '23s13',
-//     title: 'title2',
-//   },
-//   {
-//     key: '23112sd3g',
-//     title: 'title2',
-//   },
-//   {
-//     key: '23112sd34',
-//     title: 'title2',
-//   },
-//   {
-//     key: '23112sd33',
-//     title: 'title2',
-//   },
-//   {
-//     key: '23112sd31',
-//     title: 'title2',
-//   },
-//   {
-//     key: '23112sd3a',
-//     title: 'title2',
-//   },
-//   {
-//     key: '23112sd3s',
-//     title: 'title2',
-//   },
-// ];
 
 const Posts: any[] = [];
 const SearchBar = () => {
@@ -117,18 +57,20 @@ const SearchBar = () => {
   }, [searchText]);
   return (
     <div
-      className={clsx(style.searchBar)}
+      className="relative flex min-w-[56px] justify-end"
       style={{
         width: isShowInput ? '345px' : 'auto',
       }}
     >
       <div
-        className={clsx(style.inputContent, {
-          [style.inputContentShow]: isShowInput,
-        })}
+        className={clsx(
+          'absolute right-0 top-0 mb-0 ml-0 mr-[12px] mt-[12px] h-[36px] border-b-2 border-solid border-white transition-all duration-250 ease-in-out',
+          isShowInput ? 'w-[320px]' : 'w-0'
+        )}
       >
         <input
           value={searchText}
+          className="h-full w-full pr-[32px]"
           onChange={onInputChange}
           onBlur={() => {
             setTimeout(() => {
@@ -150,7 +92,7 @@ const SearchBar = () => {
                 duration: 0.5,
                 ease: [0.2, 0.88, 0.32, 1.1], // 回弹效果
               }}
-              className={clsx(style.searchResult, 'rounded-md shadow-md')}
+              className="absolute top-[40px] max-h-[400px] min-h-[220px] w-full overflow-auto rounded-md border border-solid border-[#dedede] bg-white px-[3px] py-[10px] text-[#11181c] shadow-md"
             >
               {isLoading ? (
                 <div className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
@@ -181,7 +123,7 @@ const SearchBar = () => {
         onClick={toggleShowInput}
         variant="solid"
         isIconOnly
-        className={style.searchButton}
+        className="flex h-[56px] w-[56px] items-center justify-center rounded-[50%] bg-transparent"
       >
         <Search color="#fff" strokeWidth="3px" />
       </Button>

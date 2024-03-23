@@ -1,4 +1,5 @@
 'use client';
+import { classManage } from '@/lib/utils';
 import { Post } from '@/types';
 import { Button } from '@nextui-org/button';
 import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
@@ -8,7 +9,6 @@ import { Tooltip } from '@nextui-org/tooltip';
 import { MotionProps, motion } from 'framer-motion';
 import { Link as LinkIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import style from './index.module.scss';
 
 // 定义动画效果
 const motionProps: MotionProps = {
@@ -41,12 +41,18 @@ const PostCard = (props: Props) => {
       <Card
         onClick={() => toPostContent(postData.id)}
         fullWidth
-        className={style.postCard}
+        className="cursor-pointer px-[16px] pb-0 pt-[10px]"
       >
         <CardHeader>
           <Tooltip content="阅读全文" closeDelay={100}>
-            <h5 className={style.title}>
-              <span>标题</span>
+            <h5
+              className={classManage(
+                'relative  flex items-center justify-center text-[24px] font-bold text-[#3f51b5]  hover:text-[#3273dc]',
+                'after:contents-[""] ease-linear after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-[#3273dc] after:transition-all after:duration-300',
+                'hover:after:w-full'
+              )}
+            >
+              <span className="mr-[3px]">标题</span>
               <LinkIcon size={16} />
             </h5>
           </Tooltip>
@@ -64,19 +70,34 @@ const PostCard = (props: Props) => {
         </CardBody>
         <Divider />
         <CardFooter>
-          <div className={style.footer}>
-            <div className={style.tags}>
-              <Button size="sm" color="primary" variant="flat">
+          <div className="flex w-full justify-between">
+            <div>
+              <Button
+                className="mr-[6px]"
+                size="sm"
+                color="primary"
+                variant="flat"
+              >
                 JavaScript
               </Button>
-              <Button size="sm" color="success" variant="flat">
+              <Button
+                className="mr-[6px]"
+                size="sm"
+                color="success"
+                variant="flat"
+              >
                 JavaScript
               </Button>
-              <Button size="sm" color="secondary" variant="flat">
+              <Button
+                className="mr-[6px]"
+                size="sm"
+                color="secondary"
+                variant="flat"
+              >
                 JavaScript
               </Button>
             </div>
-            <div className={style.info}>
+            <div className="flex items-center">
               <Chip color="secondary" variant="dot">
                 2023-4-12
               </Chip>

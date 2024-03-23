@@ -1,11 +1,10 @@
-import clsx from 'clsx';
+import { classManage } from '@/lib/utils';
 import { Home, LayoutGrid } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import style from './index.module.scss';
 const menuList = [
   {
-    link: '/home',
+    link: '/',
     title: '首页',
     key: 'home',
     icon: Home,
@@ -21,23 +20,27 @@ const menuList = [
 const Menu = () => {
   const pathname = usePathname();
   return (
-    <ul className={style.menuWrapper}>
+    <ul className="m-0 h-[300px] min-h-[calc(100%-115px)] list-none px-0 py-[12px] leading-[44px]">
       {menuList.map((item) => {
         return (
           <li
             key={item.key}
-            className={clsx({
-              [style.active]: pathname.startsWith(item.link),
-            })}
+            className={classManage(
+              'cursor-pointer px-[20px] py-0 text-[#727272] hover:bg-gray-100 hover:text-[#3f51b5]',
+              pathname.startsWith(item.link) && 'bg-gray-200 text-[#3f51b5]'
+            )}
           >
-            <Link className={style.link} href={item.link}>
-              <i>
+            <Link
+              className="relative block h-[44px] pl-[48px] text-[15px] font-medium leading-[44px] no-underline"
+              href={item.link}
+            >
+              <i className="absolute left-0 top-[50%] translate-y-[-50%] leading-inherit">
                 <item.icon
                   strokeWidth={pathname.startsWith(item.link) ? '2.5px' : '2px'}
                   size={20}
                 />
               </i>
-              {item.title}
+              <span>{item.title}</span>
             </Link>
           </li>
         );

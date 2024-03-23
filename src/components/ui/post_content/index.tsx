@@ -1,6 +1,5 @@
 import { Post } from '@/types';
-import style from './index.module.scss';
-import PostList from './postlist';
+import PostList from './PostList';
 const getPosts = async (): Promise<Post[]> => {
   const posts: Post[] = [];
   for (let i = 0; i < 10; i++) {
@@ -27,7 +26,7 @@ const PostPage = async ({
   const posts = await getPosts();
   const current = params.pageNum || 1;
   return (
-    <div className={style.home}>
+    <div className="min-h-[calc(100vh-340px)]">
       <PostList current={current} postList={posts} />
     </div>
   );

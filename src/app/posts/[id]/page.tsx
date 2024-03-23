@@ -1,6 +1,6 @@
 import '@/assets/style/md-dark.css';
 import '@/assets/style/md-light.scss';
-import Markdown from '@/components/Markdown';
+import Markdown from '@/components/common/markdown';
 import PostRightSize from '@/components/Posts/RightSide';
 interface Props {
   params: {
