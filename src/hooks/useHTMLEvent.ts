@@ -12,7 +12,7 @@ const useHtmlEvent = (
     return () => {
       target.removeEventListener(event, callback);
     };
-  });
+  }, [dom, event, callback]);
 };
 
 export default useHtmlEvent;

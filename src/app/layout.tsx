@@ -25,10 +25,10 @@ export default function RootLayout({
           <RyoMenu />
           <main
             id="ryo-main"
-            className="class-test peer min-h-full overflow-auto pl-[240px] transition-all duration-400 ease-in-out"
+            className="class-test peer min-h-full overflow-auto transition-all duration-400 ease-in-out lg:pl-[240px]"
           >
             <RoyHeader />
-            <div className="mx-auto my-0 w-[960px] px-0 pb-[40px] pt-[30px]">
+            <div className="mx-auto my-0 w-full px-0 pb-[40px] pt-[30px] lg:w-[960px]">
               {children}
             </div>
             <RoyFooter />

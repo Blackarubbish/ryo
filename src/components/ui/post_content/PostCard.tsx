@@ -88,14 +88,6 @@ const PostCard = (props: Props) => {
               >
                 JavaScript
               </Button>
-              <Button
-                className="mr-[6px]"
-                size="sm"
-                color="secondary"
-                variant="flat"
-              >
-                JavaScript
-              </Button>
             </div>
             <div className="flex items-center">
               <Chip color="secondary" variant="dot">
